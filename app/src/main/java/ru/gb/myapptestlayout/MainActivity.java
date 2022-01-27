@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     private Button buttonSend;
 
     @Override
@@ -16,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonSend = findViewById(R.id.send_button);
-        buttonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent duck = new Intent(this, MainActivity2.class);
-                startActivity(duck);
-            }
-        });
+        buttonSend.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent duck = new Intent(this, MainActivity2.class);
+        startActivity(duck);
     }
 }
